@@ -8,17 +8,17 @@
         "id": "aws-lambda-cdk-plain",
         "path": "aws-lambda-cdk-plain",
         "children": {
-          "lfm-mqtt-handler": {
-            "id": "lfm-mqtt-handler",
-            "path": "aws-lambda-cdk-plain/lfm-mqtt-handler",
+          "lfm-mqtt-handler-events": {
+            "id": "lfm-mqtt-handler-events",
+            "path": "aws-lambda-cdk-plain/lfm-mqtt-handler-events",
             "children": {
               "ServiceRole": {
                 "id": "ServiceRole",
-                "path": "aws-lambda-cdk-plain/lfm-mqtt-handler/ServiceRole",
+                "path": "aws-lambda-cdk-plain/lfm-mqtt-handler-events/ServiceRole",
                 "children": {
                   "ImportServiceRole": {
                     "id": "ImportServiceRole",
-                    "path": "aws-lambda-cdk-plain/lfm-mqtt-handler/ServiceRole/ImportServiceRole",
+                    "path": "aws-lambda-cdk-plain/lfm-mqtt-handler-events/ServiceRole/ImportServiceRole",
                     "constructInfo": {
                       "fqn": "aws-cdk-lib.Resource",
                       "version": "2.95.0"
@@ -26,7 +26,7 @@
                   },
                   "Resource": {
                     "id": "Resource",
-                    "path": "aws-lambda-cdk-plain/lfm-mqtt-handler/ServiceRole/Resource",
+                    "path": "aws-lambda-cdk-plain/lfm-mqtt-handler-events/ServiceRole/Resource",
                     "attributes": {
                       "aws:cdk:cloudformation:type": "AWS::IAM::Role",
                       "aws:cdk:cloudformation:props": {
@@ -60,14 +60,6 @@
                           {
                             "key": "application",
                             "value": "aws-lambda-cdk-plain"
-                          },
-                          {
-                            "key": "environment",
-                            "value": "workshops"
-                          },
-                          {
-                            "key": "project",
-                            "value": "airhacks.live"
                           }
                         ]
                       }
@@ -79,11 +71,11 @@
                   },
                   "DefaultPolicy": {
                     "id": "DefaultPolicy",
-                    "path": "aws-lambda-cdk-plain/lfm-mqtt-handler/ServiceRole/DefaultPolicy",
+                    "path": "aws-lambda-cdk-plain/lfm-mqtt-handler-events/ServiceRole/DefaultPolicy",
                     "children": {
                       "Resource": {
                         "id": "Resource",
-                        "path": "aws-lambda-cdk-plain/lfm-mqtt-handler/ServiceRole/DefaultPolicy/Resource",
+                        "path": "aws-lambda-cdk-plain/lfm-mqtt-handler-events/ServiceRole/DefaultPolicy/Resource",
                         "attributes": {
                           "aws:cdk:cloudformation:type": "AWS::IAM::Policy",
                           "aws:cdk:cloudformation:props": {
@@ -100,10 +92,10 @@
                               ],
                               "Version": "2012-10-17"
                             },
-                            "policyName": "lfmmqtthandlerServiceRoleDefaultPolicy3B2D242B",
+                            "policyName": "lfmmqtthandlereventsServiceRoleDefaultPolicy191AB37D",
                             "roles": [
                               {
-                                "Ref": "lfmmqtthandlerServiceRoleCD9BE507"
+                                "Ref": "lfmmqtthandlereventsServiceRoleDCE7BD42"
                               }
                             ]
                           }
@@ -127,11 +119,11 @@
               },
               "Code": {
                 "id": "Code",
-                "path": "aws-lambda-cdk-plain/lfm-mqtt-handler/Code",
+                "path": "aws-lambda-cdk-plain/lfm-mqtt-handler-events/Code",
                 "children": {
                   "Stage": {
                     "id": "Stage",
-                    "path": "aws-lambda-cdk-plain/lfm-mqtt-handler/Code/Stage",
+                    "path": "aws-lambda-cdk-plain/lfm-mqtt-handler-events/Code/Stage",
                     "constructInfo": {
                       "fqn": "aws-cdk-lib.AssetStaging",
                       "version": "2.95.0"
@@ -139,7 +131,7 @@
                   },
                   "AssetBucket": {
                     "id": "AssetBucket",
-                    "path": "aws-lambda-cdk-plain/lfm-mqtt-handler/Code/AssetBucket",
+                    "path": "aws-lambda-cdk-plain/lfm-mqtt-handler-events/Code/AssetBucket",
                     "constructInfo": {
                       "fqn": "aws-cdk-lib.aws_s3.BucketBase",
                       "version": "2.95.0"
@@ -153,7 +145,7 @@
               },
               "Resource": {
                 "id": "Resource",
-                "path": "aws-lambda-cdk-plain/lfm-mqtt-handler/Resource",
+                "path": "aws-lambda-cdk-plain/lfm-mqtt-handler-events/Resource",
                 "attributes": {
                   "aws:cdk:cloudformation:type": "AWS::Lambda::Function",
                   "aws:cdk:cloudformation:props": {
@@ -164,19 +156,19 @@
                       "s3Bucket": {
                         "Fn::Sub": "cdk-hnb659fds-assets-${AWS::AccountId}-us-east-2"
                       },
-                      "s3Key": "5457018988754abffe217e302cdefabcb2563e6fa360a90a9b1fa572072c3100.jar"
+                      "s3Key": "96f7c27981edf73cfa35d5265de7352d0dca03fe18b43dbb873597c6ae6f763f.jar"
                     },
                     "environment": {
                       "variables": {
                         "message": "hello,duke"
                       }
                     },
-                    "functionName": "lfm-mqtt-handler",
-                    "handler": "com.github.kevinrob.Handler::handleRequest",
+                    "functionName": "lfm-mqtt-handler-events",
+                    "handler": "com.github.kevinrob.LambdaRequestStreamHandler::handleRequest",
                     "memorySize": 128,
                     "role": {
                       "Fn::GetAtt": [
-                        "lfmmqtthandlerServiceRoleCD9BE507",
+                        "lfmmqtthandlereventsServiceRoleDCE7BD42",
                         "Arn"
                       ]
                     },
@@ -185,14 +177,6 @@
                       {
                         "key": "application",
                         "value": "aws-lambda-cdk-plain"
-                      },
-                      {
-                        "key": "environment",
-                        "value": "workshops"
-                      },
-                      {
-                        "key": "project",
-                        "value": "airhacks.live"
                       }
                     ],
                     "timeout": 10,
@@ -212,9 +196,205 @@
               "version": "2.95.0"
             }
           },
-          "FunctionARN": {
-            "id": "FunctionARN",
-            "path": "aws-lambda-cdk-plain/FunctionARN",
+          "lfm-mqtt-handler-usp": {
+            "id": "lfm-mqtt-handler-usp",
+            "path": "aws-lambda-cdk-plain/lfm-mqtt-handler-usp",
+            "children": {
+              "ServiceRole": {
+                "id": "ServiceRole",
+                "path": "aws-lambda-cdk-plain/lfm-mqtt-handler-usp/ServiceRole",
+                "children": {
+                  "ImportServiceRole": {
+                    "id": "ImportServiceRole",
+                    "path": "aws-lambda-cdk-plain/lfm-mqtt-handler-usp/ServiceRole/ImportServiceRole",
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.Resource",
+                      "version": "2.95.0"
+                    }
+                  },
+                  "Resource": {
+                    "id": "Resource",
+                    "path": "aws-lambda-cdk-plain/lfm-mqtt-handler-usp/ServiceRole/Resource",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::IAM::Role",
+                      "aws:cdk:cloudformation:props": {
+                        "assumeRolePolicyDocument": {
+                          "Statement": [
+                            {
+                              "Action": "sts:AssumeRole",
+                              "Effect": "Allow",
+                              "Principal": {
+                                "Service": "lambda.amazonaws.com"
+                              }
+                            }
+                          ],
+                          "Version": "2012-10-17"
+                        },
+                        "managedPolicyArns": [
+                          {
+                            "Fn::Join": [
+                              "",
+                              [
+                                "arn:",
+                                {
+                                  "Ref": "AWS::Partition"
+                                },
+                                ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+                              ]
+                            ]
+                          }
+                        ],
+                        "tags": [
+                          {
+                            "key": "application",
+                            "value": "aws-lambda-cdk-plain"
+                          }
+                        ]
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_iam.CfnRole",
+                      "version": "2.95.0"
+                    }
+                  },
+                  "DefaultPolicy": {
+                    "id": "DefaultPolicy",
+                    "path": "aws-lambda-cdk-plain/lfm-mqtt-handler-usp/ServiceRole/DefaultPolicy",
+                    "children": {
+                      "Resource": {
+                        "id": "Resource",
+                        "path": "aws-lambda-cdk-plain/lfm-mqtt-handler-usp/ServiceRole/DefaultPolicy/Resource",
+                        "attributes": {
+                          "aws:cdk:cloudformation:type": "AWS::IAM::Policy",
+                          "aws:cdk:cloudformation:props": {
+                            "policyDocument": {
+                              "Statement": [
+                                {
+                                  "Action": [
+                                    "xray:PutTelemetryRecords",
+                                    "xray:PutTraceSegments"
+                                  ],
+                                  "Effect": "Allow",
+                                  "Resource": "*"
+                                }
+                              ],
+                              "Version": "2012-10-17"
+                            },
+                            "policyName": "lfmmqtthandleruspServiceRoleDefaultPolicyDB161128",
+                            "roles": [
+                              {
+                                "Ref": "lfmmqtthandleruspServiceRoleDD49BA97"
+                              }
+                            ]
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.aws_iam.CfnPolicy",
+                          "version": "2.95.0"
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_iam.Policy",
+                      "version": "2.95.0"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_iam.Role",
+                  "version": "2.95.0"
+                }
+              },
+              "Code": {
+                "id": "Code",
+                "path": "aws-lambda-cdk-plain/lfm-mqtt-handler-usp/Code",
+                "children": {
+                  "Stage": {
+                    "id": "Stage",
+                    "path": "aws-lambda-cdk-plain/lfm-mqtt-handler-usp/Code/Stage",
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.AssetStaging",
+                      "version": "2.95.0"
+                    }
+                  },
+                  "AssetBucket": {
+                    "id": "AssetBucket",
+                    "path": "aws-lambda-cdk-plain/lfm-mqtt-handler-usp/Code/AssetBucket",
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_s3.BucketBase",
+                      "version": "2.95.0"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_s3_assets.Asset",
+                  "version": "2.95.0"
+                }
+              },
+              "Resource": {
+                "id": "Resource",
+                "path": "aws-lambda-cdk-plain/lfm-mqtt-handler-usp/Resource",
+                "attributes": {
+                  "aws:cdk:cloudformation:type": "AWS::Lambda::Function",
+                  "aws:cdk:cloudformation:props": {
+                    "architectures": [
+                      "arm64"
+                    ],
+                    "code": {
+                      "s3Bucket": {
+                        "Fn::Sub": "cdk-hnb659fds-assets-${AWS::AccountId}-us-east-2"
+                      },
+                      "s3Key": "96f7c27981edf73cfa35d5265de7352d0dca03fe18b43dbb873597c6ae6f763f.jar"
+                    },
+                    "environment": {
+                      "variables": {
+                        "message": "hello,duke"
+                      }
+                    },
+                    "functionName": "lfm-mqtt-handler-usp",
+                    "handler": "com.github.kevinrob.LambdaUSPStreamHandler::handleRequest",
+                    "memorySize": 128,
+                    "role": {
+                      "Fn::GetAtt": [
+                        "lfmmqtthandleruspServiceRoleDD49BA97",
+                        "Arn"
+                      ]
+                    },
+                    "runtime": "java17",
+                    "tags": [
+                      {
+                        "key": "application",
+                        "value": "aws-lambda-cdk-plain"
+                      }
+                    ],
+                    "timeout": 10,
+                    "tracingConfig": {
+                      "mode": "Active"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_lambda.CfnFunction",
+                  "version": "2.95.0"
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "aws-cdk-lib.aws_lambda.Function",
+              "version": "2.95.0"
+            }
+          },
+          "FunctionEvents": {
+            "id": "FunctionEvents",
+            "path": "aws-lambda-cdk-plain/FunctionEvents",
+            "constructInfo": {
+              "fqn": "aws-cdk-lib.CfnOutput",
+              "version": "2.95.0"
+            }
+          },
+          "FunctionUSP": {
+            "id": "FunctionUSP",
+            "path": "aws-lambda-cdk-plain/FunctionUSP",
             "constructInfo": {
               "fqn": "aws-cdk-lib.CfnOutput",
               "version": "2.95.0"

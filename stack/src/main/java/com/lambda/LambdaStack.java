@@ -12,17 +12,22 @@ import java.util.Map;
 
 public class LambdaStack extends Stack {
     static Map<String, String> configuration = Map.of("message", "hello,duke");
-    static String functionName  = "lfm-mqtt-handler";
-    static String lambdaHandler = "com.github.kevinrob.Handler::handleRequest";
+    static String eventsFunctionName  = "lfm-mqtt-handler-events";
+    static String uspFunctionName  = "lfm-mqtt-handler-usp";
+
+    static String lambdaHandlerName = "com.github.kevinrob.LambdaRequestStreamHandler::handleRequest";
+    static String uspHandlerName = "com.github.kevinrob.LambdaUSPStreamHandler::handleRequest";
     static int memory = 128;
     static int timeout = 10;
 
     public LambdaStack(final Construct scope, final String id, final StackProps props) {
         super(scope, id, props);
 
-        Function function = createFunction(functionName, lambdaHandler, configuration, memory, timeout);
+        Function eventsHandler = createFunction(eventsFunctionName, lambdaHandlerName, configuration, memory, timeout);
+        Function uspHandler = createFunction(uspFunctionName, uspHandlerName, configuration, memory, timeout);
 
-        CfnOutput.Builder.create(this, "FunctionARN").value(function.getFunctionArn()).build();
+        CfnOutput.Builder.create(this, "FunctionEvents").value(eventsHandler.getFunctionArn()).build();
+        CfnOutput.Builder.create(this, "FunctionUSP").value(uspHandler.getFunctionArn()).build();
     }
 
 

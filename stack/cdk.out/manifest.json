@@ -15,14 +15,12 @@
       "properties": {
         "templateFile": "aws-lambda-cdk-plain.template.json",
         "tags": {
-          "application": "aws-lambda-cdk-plain",
-          "environment": "workshops",
-          "project": "airhacks.live"
+          "application": "aws-lambda-cdk-plain"
         },
         "validateOnSynth": false,
         "assumeRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-deploy-role-${AWS::AccountId}-us-east-2",
         "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-cfn-exec-role-${AWS::AccountId}-us-east-2",
-        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-us-east-2/e2239a64393dbd06313a6384e190ee2f52b82e629de8521952efe06358fe953f.json",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-us-east-2/2fe7b8a0afa41b71cfb08774fe4d2a544e8ae9c9040315588abb4b9a870f1e06.json",
         "requiresBootstrapStackVersion": 6,
         "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
         "additionalDependencies": [
@@ -45,40 +43,56 @@
               {
                 "Key": "application",
                 "Value": "aws-lambda-cdk-plain"
-              },
-              {
-                "Key": "environment",
-                "Value": "workshops"
-              },
-              {
-                "Key": "project",
-                "Value": "airhacks.live"
               }
             ]
           }
         ],
-        "/aws-lambda-cdk-plain/lfm-mqtt-handler/ServiceRole/Resource": [
+        "/aws-lambda-cdk-plain/lfm-mqtt-handler-events/ServiceRole/Resource": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "lfmmqtthandlerServiceRoleCD9BE507"
+            "data": "lfmmqtthandlereventsServiceRoleDCE7BD42"
           }
         ],
-        "/aws-lambda-cdk-plain/lfm-mqtt-handler/ServiceRole/DefaultPolicy/Resource": [
+        "/aws-lambda-cdk-plain/lfm-mqtt-handler-events/ServiceRole/DefaultPolicy/Resource": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "lfmmqtthandlerServiceRoleDefaultPolicy3B2D242B"
+            "data": "lfmmqtthandlereventsServiceRoleDefaultPolicy191AB37D"
           }
         ],
-        "/aws-lambda-cdk-plain/lfm-mqtt-handler/Resource": [
+        "/aws-lambda-cdk-plain/lfm-mqtt-handler-events/Resource": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "lfmmqtthandlerA670677D"
+            "data": "lfmmqtthandlereventsA4A2FF4B"
           }
         ],
-        "/aws-lambda-cdk-plain/FunctionARN": [
+        "/aws-lambda-cdk-plain/lfm-mqtt-handler-usp/ServiceRole/Resource": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "FunctionARN"
+            "data": "lfmmqtthandleruspServiceRoleDD49BA97"
+          }
+        ],
+        "/aws-lambda-cdk-plain/lfm-mqtt-handler-usp/ServiceRole/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "lfmmqtthandleruspServiceRoleDefaultPolicyDB161128"
+          }
+        ],
+        "/aws-lambda-cdk-plain/lfm-mqtt-handler-usp/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "lfmmqtthandlerusp1DD19146"
+          }
+        ],
+        "/aws-lambda-cdk-plain/FunctionEvents": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "FunctionEvents"
+          }
+        ],
+        "/aws-lambda-cdk-plain/FunctionUSP": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "FunctionUSP"
           }
         ],
         "/aws-lambda-cdk-plain/CDKMetadata/Default": [

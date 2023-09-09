@@ -1,6 +1,6 @@
 {
  "Resources": {
-  "lfmmqtthandlerServiceRoleCD9BE507": {
+  "lfmmqtthandlereventsServiceRoleDCE7BD42": {
    "Type": "AWS::IAM::Role",
    "Properties": {
     "AssumeRolePolicyDocument": {
@@ -33,22 +33,14 @@
      {
       "Key": "application",
       "Value": "aws-lambda-cdk-plain"
-     },
-     {
-      "Key": "environment",
-      "Value": "workshops"
-     },
-     {
-      "Key": "project",
-      "Value": "airhacks.live"
      }
     ]
    },
    "Metadata": {
-    "aws:cdk:path": "aws-lambda-cdk-plain/lfm-mqtt-handler/ServiceRole/Resource"
+    "aws:cdk:path": "aws-lambda-cdk-plain/lfm-mqtt-handler-events/ServiceRole/Resource"
    }
   },
-  "lfmmqtthandlerServiceRoleDefaultPolicy3B2D242B": {
+  "lfmmqtthandlereventsServiceRoleDefaultPolicy191AB37D": {
    "Type": "AWS::IAM::Policy",
    "Properties": {
     "PolicyDocument": {
@@ -64,18 +56,18 @@
      ],
      "Version": "2012-10-17"
     },
-    "PolicyName": "lfmmqtthandlerServiceRoleDefaultPolicy3B2D242B",
+    "PolicyName": "lfmmqtthandlereventsServiceRoleDefaultPolicy191AB37D",
     "Roles": [
      {
-      "Ref": "lfmmqtthandlerServiceRoleCD9BE507"
+      "Ref": "lfmmqtthandlereventsServiceRoleDCE7BD42"
      }
     ]
    },
    "Metadata": {
-    "aws:cdk:path": "aws-lambda-cdk-plain/lfm-mqtt-handler/ServiceRole/DefaultPolicy/Resource"
+    "aws:cdk:path": "aws-lambda-cdk-plain/lfm-mqtt-handler-events/ServiceRole/DefaultPolicy/Resource"
    }
   },
-  "lfmmqtthandlerA670677D": {
+  "lfmmqtthandlereventsA4A2FF4B": {
    "Type": "AWS::Lambda::Function",
    "Properties": {
     "Architectures": [
@@ -85,19 +77,19 @@
      "S3Bucket": {
       "Fn::Sub": "cdk-hnb659fds-assets-${AWS::AccountId}-us-east-2"
      },
-     "S3Key": "5457018988754abffe217e302cdefabcb2563e6fa360a90a9b1fa572072c3100.jar"
+     "S3Key": "96f7c27981edf73cfa35d5265de7352d0dca03fe18b43dbb873597c6ae6f763f.jar"
     },
     "Environment": {
      "Variables": {
       "message": "hello,duke"
      }
     },
-    "FunctionName": "lfm-mqtt-handler",
-    "Handler": "com.github.kevinrob.Handler::handleRequest",
+    "FunctionName": "lfm-mqtt-handler-events",
+    "Handler": "com.github.kevinrob.LambdaRequestStreamHandler::handleRequest",
     "MemorySize": 128,
     "Role": {
      "Fn::GetAtt": [
-      "lfmmqtthandlerServiceRoleCD9BE507",
+      "lfmmqtthandlereventsServiceRoleDCE7BD42",
       "Arn"
      ]
     },
@@ -106,14 +98,6 @@
      {
       "Key": "application",
       "Value": "aws-lambda-cdk-plain"
-     },
-     {
-      "Key": "environment",
-      "Value": "workshops"
-     },
-     {
-      "Key": "project",
-      "Value": "airhacks.live"
      }
     ],
     "Timeout": 10,
@@ -122,12 +106,128 @@
     }
    },
    "DependsOn": [
-    "lfmmqtthandlerServiceRoleDefaultPolicy3B2D242B",
-    "lfmmqtthandlerServiceRoleCD9BE507"
+    "lfmmqtthandlereventsServiceRoleDefaultPolicy191AB37D",
+    "lfmmqtthandlereventsServiceRoleDCE7BD42"
    ],
    "Metadata": {
-    "aws:cdk:path": "aws-lambda-cdk-plain/lfm-mqtt-handler/Resource",
-    "aws:asset:path": "asset.5457018988754abffe217e302cdefabcb2563e6fa360a90a9b1fa572072c3100.jar",
+    "aws:cdk:path": "aws-lambda-cdk-plain/lfm-mqtt-handler-events/Resource",
+    "aws:asset:path": "asset.96f7c27981edf73cfa35d5265de7352d0dca03fe18b43dbb873597c6ae6f763f.jar",
+    "aws:asset:is-bundled": false,
+    "aws:asset:property": "Code"
+   }
+  },
+  "lfmmqtthandleruspServiceRoleDD49BA97": {
+   "Type": "AWS::IAM::Role",
+   "Properties": {
+    "AssumeRolePolicyDocument": {
+     "Statement": [
+      {
+       "Action": "sts:AssumeRole",
+       "Effect": "Allow",
+       "Principal": {
+        "Service": "lambda.amazonaws.com"
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "ManagedPolicyArns": [
+     {
+      "Fn::Join": [
+       "",
+       [
+        "arn:",
+        {
+         "Ref": "AWS::Partition"
+        },
+        ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+       ]
+      ]
+     }
+    ],
+    "Tags": [
+     {
+      "Key": "application",
+      "Value": "aws-lambda-cdk-plain"
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "aws-lambda-cdk-plain/lfm-mqtt-handler-usp/ServiceRole/Resource"
+   }
+  },
+  "lfmmqtthandleruspServiceRoleDefaultPolicyDB161128": {
+   "Type": "AWS::IAM::Policy",
+   "Properties": {
+    "PolicyDocument": {
+     "Statement": [
+      {
+       "Action": [
+        "xray:PutTelemetryRecords",
+        "xray:PutTraceSegments"
+       ],
+       "Effect": "Allow",
+       "Resource": "*"
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "PolicyName": "lfmmqtthandleruspServiceRoleDefaultPolicyDB161128",
+    "Roles": [
+     {
+      "Ref": "lfmmqtthandleruspServiceRoleDD49BA97"
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "aws-lambda-cdk-plain/lfm-mqtt-handler-usp/ServiceRole/DefaultPolicy/Resource"
+   }
+  },
+  "lfmmqtthandlerusp1DD19146": {
+   "Type": "AWS::Lambda::Function",
+   "Properties": {
+    "Architectures": [
+     "arm64"
+    ],
+    "Code": {
+     "S3Bucket": {
+      "Fn::Sub": "cdk-hnb659fds-assets-${AWS::AccountId}-us-east-2"
+     },
+     "S3Key": "96f7c27981edf73cfa35d5265de7352d0dca03fe18b43dbb873597c6ae6f763f.jar"
+    },
+    "Environment": {
+     "Variables": {
+      "message": "hello,duke"
+     }
+    },
+    "FunctionName": "lfm-mqtt-handler-usp",
+    "Handler": "com.github.kevinrob.LambdaUSPStreamHandler::handleRequest",
+    "MemorySize": 128,
+    "Role": {
+     "Fn::GetAtt": [
+      "lfmmqtthandleruspServiceRoleDD49BA97",
+      "Arn"
+     ]
+    },
+    "Runtime": "java17",
+    "Tags": [
+     {
+      "Key": "application",
+      "Value": "aws-lambda-cdk-plain"
+     }
+    ],
+    "Timeout": 10,
+    "TracingConfig": {
+     "Mode": "Active"
+    }
+   },
+   "DependsOn": [
+    "lfmmqtthandleruspServiceRoleDefaultPolicyDB161128",
+    "lfmmqtthandleruspServiceRoleDD49BA97"
+   ],
+   "Metadata": {
+    "aws:cdk:path": "aws-lambda-cdk-plain/lfm-mqtt-handler-usp/Resource",
+    "aws:asset:path": "asset.96f7c27981edf73cfa35d5265de7352d0dca03fe18b43dbb873597c6ae6f763f.jar",
     "aws:asset:is-bundled": false,
     "aws:asset:property": "Code"
    }
@@ -143,10 +243,18 @@
   }
  },
  "Outputs": {
-  "FunctionARN": {
+  "FunctionEvents": {
    "Value": {
     "Fn::GetAtt": [
-     "lfmmqtthandlerA670677D",
+     "lfmmqtthandlereventsA4A2FF4B",
+     "Arn"
+    ]
+   }
+  },
+  "FunctionUSP": {
+   "Value": {
+    "Fn::GetAtt": [
+     "lfmmqtthandlerusp1DD19146",
      "Arn"
     ]
    }

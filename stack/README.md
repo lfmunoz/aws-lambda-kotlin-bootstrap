@@ -16,11 +16,4 @@ It is a [Maven](https://maven.apache.org/) based project, so you can open this p
  * `cdk docs`        open CDK documentation
 
 Enjoy!
-
-https://us-east-1.console.aws.amazon.com/lambda/home?region=us-east-1#/functions/handleRequest?tab=code
-
-
-https://us-east-2.console.aws.amazon.com/ec2/home?region=us-east-2#LoadBalancers:sort=loadBalancerName
-
-
-https://us-east-1.console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks?filteringText=&filteringStatus=active&viewNested=true
+code(*, 'base64') AS data, timestamp() AS ts FROM 'usp/controller/#'

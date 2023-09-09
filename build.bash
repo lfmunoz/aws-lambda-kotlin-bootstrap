@@ -33,42 +33,35 @@ stage-git-clone() {
 #	git clone ${repositoryUrl} --depth 1 /root/workingDir/repository
 }
 
-stage-test() {
+stage-boostrap() {
 	echo "# ----------------------------------------------"
-	echo "# STAGE: test"
+	echo "# STAGE: boostrap"
 	echo "# ----------------------------------------------"
-#	cd repository ; ./gradlew test
+	cd stack
+  cdk bootstrap
 }
 
 stage-all() {
 	echo "# ----------------------------------------------"
 	echo "# STAGE: all"
 	echo "# ----------------------------------------------"
-	./gradlew lambda:shadowJar
-	./gradlew stack:shadowJar
-	cd stack
-	cdk deploy
+	stage-package
+	stage-deploy
+
 }
 
 stage-package() {
 	echo "# ----------------------------------------------"
 	echo "# STAGE: package"
 	echo "# ----------------------------------------------"
+	./gradlew lambda:shadowJar
 	./gradlew stack:shadowJar
-}
-
-stage-publish() {
-	echo "# ----------------------------------------------"
-	echo "# STAGE: publish"
-	echo "# ----------------------------------------------"
-	echo "N/A"
 }
 
 stage-deploy() {
 	echo "# ----------------------------------------------"
 	echo "# STAGE: deploy"
 	echo "# ----------------------------------------------"
-	echo "N/A"
 	cd stack
 	cdk deploy
 }

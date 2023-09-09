@@ -49,3 +49,16 @@ The `cdk.json` file tells the CDK Toolkit how to execute your app.
 ## References
 
 * https://aws.amazon.com/getting-started/guides/setup-cdk/module-two/
+
+https://us-east-1.console.aws.amazon.com/lambda/home?region=us-east-1#/functions/handleRequest?tab=code
+
+
+https://us-east-2.console.aws.amazon.com/ec2/home?region=us-east-2#LoadBalancers:sort=loadBalancerName
+
+
+https://us-east-1.console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks?filteringText=&filteringStatus=active&viewNested=true
+
+
+SELECT * FROM '$aws/events/presence/connected/#'
+SELECT * FROM '$aws/events/subscriptions/subscribed/#'
+SELECT encode(*, 'base64') AS data, timestamp() AS ts FROM 'usp/controller/#

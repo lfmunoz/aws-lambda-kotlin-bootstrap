@@ -1,3 +1,6 @@
 .gradle/
 build/
 out/
+
+stack/cdk.out
+.idea/

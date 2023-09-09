@@ -18,12 +18,9 @@ public class TmpApp {
     public static void main(final String[] args) {
         App app = new App();
         String appName = "aws-lambda-cdk-plain";
-        Tags.of(app).add("project", "airhacks.live");
-        Tags.of(app).add("environment","workshops");
         Tags.of(app).add("application", appName);
 
-
-        Environment awsEnvironment = makeEnv("us-east-1");
+        Environment awsEnvironment = makeEnv("us-east-2");
 
         StackProps stackProps = StackProps.builder()
                 .env(awsEnvironment)
