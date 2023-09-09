@@ -12,8 +12,8 @@ import java.util.Map;
 
 public class LambdaStack extends Stack {
     static Map<String, String> configuration = Map.of("message", "hello,duke");
-    static String functionName  = "handleRequest";
-    static String lambdaHandler = "com.example.Handler::handleRequest";
+    static String functionName  = "lfm-mqtt-handler";
+    static String lambdaHandler = "com.github.kevinrob.Handler::handleRequest";
     static int memory = 128;
     static int timeout = 10;
 

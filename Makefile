@@ -1,18 +1,20 @@
-.PHONY: build
+.PHONY: default all
 
 default:
 	# java 11
 	java --version
 
-build:
-	./gradlew shadowJar
+all:
+	bash build.bash stage-all
 
-
+# LAMBDA
 build-lambda:
 	./gradlew lambda:shadowJar
 
-build-stack:
-	# nvm use v18.16.0
-	#cd tmp ; maven package &&  cdk deploy
-	./gradlew stack:shadowJar && cd stack cdk deploy
+# CDK STACK
+ci-deploy:
+	bash build.bash stage-deploy
+
+ci-package:
+	bash build.bash stage-package
 

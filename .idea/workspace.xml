@@ -5,26 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a5152e47-7089-4c61-bf0c-1b2c9bac0f7e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/kotlinc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/kotlinc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradlew" beforeDir="false" afterPath="$PROJECT_DIR$/gradlew" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradlew.bat" beforeDir="false" afterPath="$PROJECT_DIR$/gradlew.bat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/settings.gradle.kts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/LambdaRequestHandler.kt" beforeDir="false" afterPath="$PROJECT_DIR$/lambda/src/main/java/com/github/kevinrob/LambdaRequestHandler.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/LambdaRequestStreamHandler.kt" beforeDir="false" afterPath="$PROJECT_DIR$/lambda/src/main/java/com/github/kevinrob/LambdaRequestStreamHandler.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/main.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tmp/cdk.json" beforeDir="false" afterPath="$PROJECT_DIR$/stack/cdk.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tmp/src/main/java/com/myorg/LambdaStack.java" beforeDir="false" afterPath="$PROJECT_DIR$/tmp/src/main/java/com/myorg/LambdaStack.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lambda/src/main/java/com/github/kevinrob/main.kt" beforeDir="false" afterPath="$PROJECT_DIR$/lambda/src/main/java/com/github/kevinrob/main.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/stack/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/stack/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/stack/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/stack/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/stack/cdk.out/aws-lambda-cdk-plain.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/stack/cdk.out/aws-lambda-cdk-plain.assets.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/stack/cdk.out/aws-lambda-cdk-plain.template.json" beforeDir="false" afterPath="$PROJECT_DIR$/stack/cdk.out/aws-lambda-cdk-plain.template.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/stack/cdk.out/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/stack/cdk.out/manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/stack/cdk.out/tree.json" beforeDir="false" afterPath="$PROJECT_DIR$/stack/cdk.out/tree.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/stack/src/main/java/com/lambda/LambdaStack.java" beforeDir="false" afterPath="$PROJECT_DIR$/stack/src/main/java/com/lambda/LambdaStack.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/stack/src/main/java/com/lambda/TmpApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/stack/src/main/java/com/lambda/TmpApp.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,11 +71,53 @@
       <recent name="$PROJECT_DIR$/lambda/src/main/java/com/github/kevinrob" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/stack" />
     </key>
     <key name="MoveKotlinTopLevelDeclarationsDialog.RECENTS_KEY">
       <recent name="com.github.kevinrob" />
     </key>
+  </component>
+  <component name="RunManager" selected="Makefile Target.all">
+    <configuration name="all" type="MAKEFILE_TARGET_RUN_CONFIGURATION" factoryName="Makefile" temporary="true">
+      <makefile filename="$PROJECT_DIR$/Makefile" target="all" workingDirectory="" arguments="">
+        <envs />
+      </makefile>
+      <method v="2" />
+    </configuration>
+    <configuration name="build-lambda" type="MAKEFILE_TARGET_RUN_CONFIGURATION" factoryName="Makefile" temporary="true">
+      <makefile filename="$PROJECT_DIR$/Makefile" target="build-lambda" workingDirectory="" arguments="">
+        <envs />
+      </makefile>
+      <method v="2" />
+    </configuration>
+    <configuration name="build-stack" type="MAKEFILE_TARGET_RUN_CONFIGURATION" factoryName="Makefile" temporary="true">
+      <makefile filename="$PROJECT_DIR$/Makefile" target="build-stack" workingDirectory="" arguments="">
+        <envs />
+      </makefile>
+      <method v="2" />
+    </configuration>
+    <configuration name="ci-deploy" type="MAKEFILE_TARGET_RUN_CONFIGURATION" factoryName="Makefile" temporary="true">
+      <makefile filename="$PROJECT_DIR$/Makefile" target="ci-deploy" workingDirectory="" arguments="">
+        <envs />
+      </makefile>
+      <method v="2" />
+    </configuration>
+    <configuration name="ci-package" type="MAKEFILE_TARGET_RUN_CONFIGURATION" factoryName="Makefile" temporary="true">
+      <makefile filename="$PROJECT_DIR$/Makefile" target="ci-package" workingDirectory="" arguments="">
+        <envs />
+      </makefile>
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Makefile Target.all" />
+        <item itemvalue="Makefile Target.ci-deploy" />
+        <item itemvalue="Makefile Target.ci-package" />
+        <item itemvalue="Makefile Target.build-lambda" />
+        <item itemvalue="Makefile Target.build-stack" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -94,7 +127,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1694221456652</updated>
-      <workItem from="1694221457859" duration="1884000" />
+      <workItem from="1694221457859" duration="3597000" />
     </task>
     <servers />
   </component>

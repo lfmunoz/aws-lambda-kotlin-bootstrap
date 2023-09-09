@@ -8,17 +8,17 @@
         "id": "aws-lambda-cdk-plain",
         "path": "aws-lambda-cdk-plain",
         "children": {
-          "handleRequest": {
-            "id": "handleRequest",
-            "path": "aws-lambda-cdk-plain/handleRequest",
+          "lfm-mqtt-handler": {
+            "id": "lfm-mqtt-handler",
+            "path": "aws-lambda-cdk-plain/lfm-mqtt-handler",
             "children": {
               "ServiceRole": {
                 "id": "ServiceRole",
-                "path": "aws-lambda-cdk-plain/handleRequest/ServiceRole",
+                "path": "aws-lambda-cdk-plain/lfm-mqtt-handler/ServiceRole",
                 "children": {
                   "ImportServiceRole": {
                     "id": "ImportServiceRole",
-                    "path": "aws-lambda-cdk-plain/handleRequest/ServiceRole/ImportServiceRole",
+                    "path": "aws-lambda-cdk-plain/lfm-mqtt-handler/ServiceRole/ImportServiceRole",
                     "constructInfo": {
                       "fqn": "aws-cdk-lib.Resource",
                       "version": "2.95.0"
@@ -26,7 +26,7 @@
                   },
                   "Resource": {
                     "id": "Resource",
-                    "path": "aws-lambda-cdk-plain/handleRequest/ServiceRole/Resource",
+                    "path": "aws-lambda-cdk-plain/lfm-mqtt-handler/ServiceRole/Resource",
                     "attributes": {
                       "aws:cdk:cloudformation:type": "AWS::IAM::Role",
                       "aws:cdk:cloudformation:props": {
@@ -79,11 +79,11 @@
                   },
                   "DefaultPolicy": {
                     "id": "DefaultPolicy",
-                    "path": "aws-lambda-cdk-plain/handleRequest/ServiceRole/DefaultPolicy",
+                    "path": "aws-lambda-cdk-plain/lfm-mqtt-handler/ServiceRole/DefaultPolicy",
                     "children": {
                       "Resource": {
                         "id": "Resource",
-                        "path": "aws-lambda-cdk-plain/handleRequest/ServiceRole/DefaultPolicy/Resource",
+                        "path": "aws-lambda-cdk-plain/lfm-mqtt-handler/ServiceRole/DefaultPolicy/Resource",
                         "attributes": {
                           "aws:cdk:cloudformation:type": "AWS::IAM::Policy",
                           "aws:cdk:cloudformation:props": {
@@ -100,10 +100,10 @@
                               ],
                               "Version": "2012-10-17"
                             },
-                            "policyName": "handleRequestServiceRoleDefaultPolicy98E38C25",
+                            "policyName": "lfmmqtthandlerServiceRoleDefaultPolicy3B2D242B",
                             "roles": [
                               {
-                                "Ref": "handleRequestServiceRole3FBD2236"
+                                "Ref": "lfmmqtthandlerServiceRoleCD9BE507"
                               }
                             ]
                           }
@@ -127,11 +127,11 @@
               },
               "Code": {
                 "id": "Code",
-                "path": "aws-lambda-cdk-plain/handleRequest/Code",
+                "path": "aws-lambda-cdk-plain/lfm-mqtt-handler/Code",
                 "children": {
                   "Stage": {
                     "id": "Stage",
-                    "path": "aws-lambda-cdk-plain/handleRequest/Code/Stage",
+                    "path": "aws-lambda-cdk-plain/lfm-mqtt-handler/Code/Stage",
                     "constructInfo": {
                       "fqn": "aws-cdk-lib.AssetStaging",
                       "version": "2.95.0"
@@ -139,7 +139,7 @@
                   },
                   "AssetBucket": {
                     "id": "AssetBucket",
-                    "path": "aws-lambda-cdk-plain/handleRequest/Code/AssetBucket",
+                    "path": "aws-lambda-cdk-plain/lfm-mqtt-handler/Code/AssetBucket",
                     "constructInfo": {
                       "fqn": "aws-cdk-lib.aws_s3.BucketBase",
                       "version": "2.95.0"
@@ -153,7 +153,7 @@
               },
               "Resource": {
                 "id": "Resource",
-                "path": "aws-lambda-cdk-plain/handleRequest/Resource",
+                "path": "aws-lambda-cdk-plain/lfm-mqtt-handler/Resource",
                 "attributes": {
                   "aws:cdk:cloudformation:type": "AWS::Lambda::Function",
                   "aws:cdk:cloudformation:props": {
@@ -162,21 +162,21 @@
                     ],
                     "code": {
                       "s3Bucket": {
-                        "Fn::Sub": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}"
+                        "Fn::Sub": "cdk-hnb659fds-assets-${AWS::AccountId}-us-east-2"
                       },
-                      "s3Key": "9effef37c73d40561d37812ed6bc0e63768a12288e2439e5ac83cf7e7e2efa4f.jar"
+                      "s3Key": "5457018988754abffe217e302cdefabcb2563e6fa360a90a9b1fa572072c3100.jar"
                     },
                     "environment": {
                       "variables": {
                         "message": "hello,duke"
                       }
                     },
-                    "functionName": "handleRequest",
-                    "handler": "com.example.Handler::handleRequest",
+                    "functionName": "lfm-mqtt-handler",
+                    "handler": "com.github.kevinrob.Handler::handleRequest",
                     "memorySize": 128,
                     "role": {
                       "Fn::GetAtt": [
-                        "handleRequestServiceRole3FBD2236",
+                        "lfmmqtthandlerServiceRoleCD9BE507",
                         "Arn"
                       ]
                     },
@@ -229,14 +229,6 @@
                 "path": "aws-lambda-cdk-plain/CDKMetadata/Default",
                 "constructInfo": {
                   "fqn": "aws-cdk-lib.CfnResource",
-                  "version": "2.95.0"
-                }
-              },
-              "Condition": {
-                "id": "Condition",
-                "path": "aws-lambda-cdk-plain/CDKMetadata/Condition",
-                "constructInfo": {
-                  "fqn": "aws-cdk-lib.CfnCondition",
                   "version": "2.95.0"
                 }
               }

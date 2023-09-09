@@ -17,6 +17,8 @@ It is a [Maven](https://maven.apache.org/) based project, so you can open this p
 
 Enjoy!
 
+https://us-east-1.console.aws.amazon.com/lambda/home?region=us-east-1#/functions/handleRequest?tab=code
+
 
 https://us-east-2.console.aws.amazon.com/ec2/home?region=us-east-2#LoadBalancers:sort=loadBalancerName
 

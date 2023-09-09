@@ -11,6 +11,10 @@ class Handler : RequestHandler<APIGatewayProxyRequestEvent, APIGatewayProxyRespo
     override fun handleRequest(input: APIGatewayProxyRequestEvent, context: Context): APIGatewayProxyResponseEvent {
         context.logger.log("Start invocation of snsFailureEvents! ${DateTime.now()}")
 
+        println("--------------------------------------")
+        println("Body")
+        println("--------------------------------------")
+        println(input.body)
         return APIGatewayProxyResponseEvent().apply {
             statusCode = 200
             body = "It's working!"
