@@ -1,17 +1,14 @@
-package com.myorg;
-
-import java.util.Map;
+package com.lambda;
 
 import software.amazon.awscdk.CfnOutput;
 import software.amazon.awscdk.Duration;
 import software.amazon.awscdk.Stack;
 import software.amazon.awscdk.StackProps;
-import software.amazon.awscdk.services.lambda.Architecture;
-import software.amazon.awscdk.services.lambda.Code;
-import software.amazon.awscdk.services.lambda.Function;
 import software.amazon.awscdk.services.lambda.Runtime;
-import software.amazon.awscdk.services.lambda.Tracing;
+import software.amazon.awscdk.services.lambda.*;
 import software.constructs.Construct;
+
+import java.util.Map;
 
 public class LambdaStack extends Stack {
     static Map<String, String> configuration = Map.of("message", "hello,duke");

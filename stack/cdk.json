@@ -1,6 +1,5 @@
 {
-  "app": "gradlew -q cdkSynth",
-  "app": "mvn -e -q compile exec:java",
+  "app": "java -jar build/libs/app.zip",
   "watch": {
     "include": [
       "**"

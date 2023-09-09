@@ -1,0 +1,118 @@
+{
+  "version": "34.0.0",
+  "artifacts": {
+    "aws-lambda-cdk-plain.assets": {
+      "type": "cdk:asset-manifest",
+      "properties": {
+        "file": "aws-lambda-cdk-plain.assets.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+      }
+    },
+    "aws-lambda-cdk-plain": {
+      "type": "aws:cloudformation:stack",
+      "environment": "aws://unknown-account/unknown-region",
+      "properties": {
+        "templateFile": "aws-lambda-cdk-plain.template.json",
+        "tags": {
+          "application": "aws-lambda-cdk-plain",
+          "environment": "workshops",
+          "project": "airhacks.live"
+        },
+        "validateOnSynth": false,
+        "assumeRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-deploy-role-${AWS::AccountId}-${AWS::Region}",
+        "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-cfn-exec-role-${AWS::AccountId}-${AWS::Region}",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/5fd778e02af9482ca380dfa837b1ff04035df5a508ad314f19a8d90b03b44f7a.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
+        "additionalDependencies": [
+          "aws-lambda-cdk-plain.assets"
+        ],
+        "lookupRole": {
+          "arn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-lookup-role-${AWS::AccountId}-${AWS::Region}",
+          "requiresBootstrapStackVersion": 8,
+          "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+        }
+      },
+      "dependencies": [
+        "aws-lambda-cdk-plain.assets"
+      ],
+      "metadata": {
+        "/aws-lambda-cdk-plain": [
+          {
+            "type": "aws:cdk:stack-tags",
+            "data": [
+              {
+                "Key": "application",
+                "Value": "aws-lambda-cdk-plain"
+              },
+              {
+                "Key": "environment",
+                "Value": "workshops"
+              },
+              {
+                "Key": "project",
+                "Value": "airhacks.live"
+              }
+            ]
+          }
+        ],
+        "/aws-lambda-cdk-plain/handleRequest/ServiceRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "handleRequestServiceRole3FBD2236"
+          }
+        ],
+        "/aws-lambda-cdk-plain/handleRequest/ServiceRole/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "handleRequestServiceRoleDefaultPolicy98E38C25"
+          }
+        ],
+        "/aws-lambda-cdk-plain/handleRequest/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "handleRequest11997C14"
+          }
+        ],
+        "/aws-lambda-cdk-plain/FunctionARN": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "FunctionARN"
+          }
+        ],
+        "/aws-lambda-cdk-plain/CDKMetadata/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadata"
+          }
+        ],
+        "/aws-lambda-cdk-plain/CDKMetadata/Condition": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadataAvailable"
+          }
+        ],
+        "/aws-lambda-cdk-plain/BootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "BootstrapVersion"
+          }
+        ],
+        "/aws-lambda-cdk-plain/CheckBootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CheckBootstrapVersion"
+          }
+        ]
+      },
+      "displayName": "aws-lambda-cdk-plain"
+    },
+    "Tree": {
+      "type": "cdk:tree",
+      "properties": {
+        "file": "tree.json"
+      }
+    }
+  }
+}

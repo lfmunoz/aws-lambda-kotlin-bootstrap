@@ -1,42 +1,51 @@
-import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
-
+//________________________________________________________________________________
+// BUILD SCRIPT
+//________________________________________________________________________________
 buildscript {
-    var kotlin_version: String by extra
-    kotlin_version = "1.2.50"
-
     repositories {
         mavenCentral()
+        jcenter()
     }
+
     dependencies {
-        classpath(kotlin("gradle-plugin", kotlin_version))
+        classpath(kotlin("gradle-plugin", version = "1.7.10"))
     }
 }
 
-group = "com.github.kevinrob"
-version = "0.1"
+//________________________________________________________________________________
+// VERSIONS
+//________________________________________________________________________________
+val guavaVersion by extra { "28.0-jre" }
+val kotlinVersion by extra { "1.7.10"}
+val kotlinCoroutinesVersion by extra { "1.6.4"}
 
+//________________________________________________________________________________
+// PLUGINS
+//________________________________________________________________________________
 plugins {
-    `kotlin-dsl`
-    id("com.github.johnrengelman.shadow") version "2.0.4"
+    java
+    kotlin("jvm") version "1.5.32"
+    id("com.github.johnrengelman.shadow") version "7.1.2"
 }
 
-val kotlin_version: String by extra
 
-repositories {
-    mavenCentral()
-}
+allprojects {
+    apply {
+        plugin("kotlin")
+        plugin("maven-publish")
+    }
+    repositories {
+        mavenLocal()
+        mavenCentral()
+    }
+    tasks {
+        withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
+            kotlinOptions.jvmTarget = "11"
+        }
 
-dependencies {
-    compile(kotlin("stdlib-jdk8", kotlin_version))
-    compile("com.amazonaws:aws-lambda-java-core:1.1.0")
-    compile("com.amazonaws:aws-lambda-java-events:2.1.0")
-    compile("org.json:json:20180130")
-// https://mvnrepository.com/artifact/commons-io/commons-io
-    implementation("commons-io:commons-io:2.13.0")
-
-    testCompile("org.junit.jupiter:junit-jupiter-api:5.0.0")
-}
-
-tasks.withType<KotlinCompile> {
-    kotlinOptions.jvmTarget = "1.8"
+    }
+    java {
+        withJavadocJar()
+        withSourcesJar()
+    }
 }
