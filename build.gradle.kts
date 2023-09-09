@@ -31,6 +31,8 @@ dependencies {
     compile("com.amazonaws:aws-lambda-java-core:1.1.0")
     compile("com.amazonaws:aws-lambda-java-events:2.1.0")
     compile("org.json:json:20180130")
+// https://mvnrepository.com/artifact/commons-io/commons-io
+    implementation("commons-io:commons-io:2.13.0")
 
     testCompile("org.junit.jupiter:junit-jupiter-api:5.0.0")
 }
